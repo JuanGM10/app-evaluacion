@@ -1,0 +1,62 @@
+<form [formGroup]="movieForm">
+<mat-dialog-content class="mat-typography">
+  <h2>Agregar/Editar Película</h2>
+
+    <mat-grid-list cols="2" [cols]="breakpoint" rowHeight="85px" (window:resize)="onResize($event)">
+      <mat-grid-tile>
+        <div class="text-inside">
+          <mat-form-field>
+            <mat-label>Título</mat-label>
+            <input matInput formControlName="Title">
+            <mat-error *ngIf="movieForm.get('Title')!.invalid">Título es requerido</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="text-inside">
+          <mat-form-field>
+            <mat-label>Año</mat-label>
+            <input matInput formControlName="Year" type="number">
+            <mat-error *ngIf="movieForm.get('Year')!.invalid">Año es requerido</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+  
+      <mat-grid-tile>
+        <div class="text-inside">
+          <mat-form-field>
+            <mat-label>ID IMDb</mat-label>
+            <input matInput formControlName="imdbID">
+            <mat-error *ngIf="movieForm.get('imdbID')!.invalid">ID IMDb es requerido</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <div class="text-inside">
+          <mat-form-field>
+            <mat-label>Tipo</mat-label>
+            <input matInput formControlName="Type">
+            <mat-error *ngIf="movieForm.get('Type')!.invalid">Tipo es requerido</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+  
+
+      <mat-grid-tile  [colspan]="2">
+        <div class="text-inside">
+          <mat-form-field>
+            <mat-label>Póster</mat-label>
+            <input matInput formControlName="Poster">
+            <mat-error *ngIf="movieForm.get('Poster')!.invalid">Póster es requerido</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cerrar()">Cancel</button>
+  <button mat-button (click)="onSubmit()">Guardar</button>
+</mat-dialog-actions>
+</form>
